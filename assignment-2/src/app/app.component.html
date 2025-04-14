@@ -1,0 +1,67 @@
+@let speed = speed$ | async;
+
+<!-- 스크린 -->
+<div class="screen">
+  <!-- 가사 -->
+  <div class="lyrics">
+    <p>All I know is now 알게 됐어 나 (I know)</p>
+    <p [style.backgroundPositionX.%]="20 * -1">그동안 맨날 always up and down (no more)</p>
+    <p>생각 또 생각 spinnin' 'round and 'round, changing my mind</p>
+  </div>
+
+  <!-- 컨트롤 컨테이너 -->
+  <div class="controls-wrapper">
+    <!-- 진행 상태 바 -->
+    <div class="progressbar-wrapper">
+      <div class="progressbar">
+        <div
+          class="progressbar-fill"
+          [style.width.%]="2"
+        ></div>
+      </div>
+
+      <div class="time">
+        <span>00:08</span>
+        <span>03:45</span>
+      </div>
+    </div>
+
+    <!-- 컨트롤 -->
+    <div class="controls">
+      <!-- 버튼 목록 -->
+      <div class="buttons">
+        <!-- 재생 button -->
+        <button
+          class="button-control"
+        >
+          <!-- 재생 아이콘 -->
+          <ng-icon [name]="'heroPlaySolid'" />
+          
+          <!-- 일시정지 아이콘 -->
+          <!-- <ng-icon name='heroPauseSolid' /> -->
+        </button>
+
+        <!-- 정지 버튼 -->
+        <button
+          class="button-control"
+          disabled
+        >
+          <ng-icon name="heroStopSolid" />
+        </button>
+      </div>
+
+      <!-- 재생 속도 컨트롤 -->
+      <div class="range-control-wrapper">
+        <label>{{ speed }}x</label>
+        <input
+          class="range-control"
+          type="range"
+          min="0.25"
+          max="3"
+          step="0.25"
+          [formControl]="speedCtrl"
+        />
+      </div>
+    </div>
+  </div>
+</div>
